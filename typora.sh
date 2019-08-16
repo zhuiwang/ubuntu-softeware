@@ -11,5 +11,6 @@ sudo add-apt-repository 'deb https://typora.io/linux ./'
 sudo apt-get update
 
 # install typora
-
-sudo apt-get install typora
+if [ $? -eq 0 ];then
+    sudo apt-get install typora
+fi

@@ -2,7 +2,7 @@
 # Auther wangzhui
 # This is a script for install wechatpythonstatudy web local environment
 
-for x in `gem list --no-versions`; do sudo gem uninstall $x -a -x -I; done >> ./install.log
+#for x in `gem list --no-versions`; do sudo gem uninstall $x -a -x -I; done >> ./install.log
 webpath="/home/$USER/wechatpythonstudy.github.io"
 #sudo apt-get remove -y git ruby-dev ruby > ./install.log
 #sudo apt-get remove -y zlib1g=1:1.2.8.dfsg-2ubuntu4 >> ./install.log
@@ -10,7 +10,8 @@ webpath="/home/$USER/wechatpythonstudy.github.io"
 sudo apt-get update >> ./install.log
 if [ $? -eq 0 ];then
     sudo apt-get install -y git ruby-dev ruby gem >> ./install.log
-    sudo apt-get install zlib1g=1:1.2.8.dfsg-2ubuntu4 -y --allow-downgrades >> ./install.log 
+    sudo apt-get install zlib1g=1:1.2.8.dfsg-2ubuntu4 -y --allow-downgrades >> ./install.log
+    sudo apt-get install zlib1g-dev
 fi
 
 if [ $? -eq 0 ];then
@@ -33,7 +34,8 @@ if [ -d $webpath ];then
     sudo gem install bundle >> ./install.log
     echo "bundle install"
     bundle install >> ./install.log
-    echo "bundle exec jekyll serve"
-    bundle exec jekyll serve
+    # echo "bundle exec jekyll serve"
+    # bundle exec jekyll serve
 fi
 
+cd $ubuntu_software_path
